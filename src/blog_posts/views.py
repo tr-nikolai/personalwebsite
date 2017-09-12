@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from .models import BlogPost
+from django.http import HttpResponse
 
-# Create your views here.
+
+def post_home():
+    return HttpResponse('<h1>Hello</>')
