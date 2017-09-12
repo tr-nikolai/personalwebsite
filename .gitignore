@@ -1,11 +1,8 @@
-.idea/inspectionProfiles/
-.idea/vcs.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/personalwebsite.iml
-.idea/workspace.xml
+.idea/
 *.sqlite3
-personalwebsite/settings.py
+*.pyc
 blog_posts/migrations/__pycache__/
 blog_posts/__pycache__/
+blog_posts/migrations
 personalwebsite/__pycahe__/
+personalwebsite/settings.py

@@ -1,9 +1,8 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
-from blog_posts import views
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^blog_posts/$', views.post_home),
+    url(r'^blog/', include('blog_posts.urls', namespace='blog')),
 ]
