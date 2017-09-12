@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+SECRET_KEY = 'gr2_48&%g@#!%7mv4_uo#ad6at95wp701k7r@2&%=)$-zq_9b4'
 ALLOWED_HOSTS = []
 
 
@@ -34,6 +34,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third party apps
+    #  my apps
+    'blog_posts',
 ]
 
 MIDDLEWARE_CLASSES = [
