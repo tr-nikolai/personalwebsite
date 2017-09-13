@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Form</h1>
-    <form method="POST" action="">
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>Form</h1>
+        <form method="POST" action="">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Создать">
-    </form>
-</body>
-</html>
+    </div>
+</div>
+{% endblock content %}

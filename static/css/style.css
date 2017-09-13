@@ -1,0 +1,317 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    height: 100%;
+
+}
+.navbar-default {
+    background-color: #ffffff;
+    border-color: #eeeeee;
+    padding: 10px 0;
+    margin-bottom: 0;
+    /*position: fixed;*/
+    /*width: 100%;*/
+    /*z-index: 3;*/
+}
+
+.navbar {
+    border-radius: 0;
+}
+.navbar-nav > li > a {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.navbar-nav .active-link {
+    color:#09c4f2 !important;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+     color:#09c4f2;
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.navbar-brand {
+    background: url("../img/icon/sprites.png") no-repeat;
+    background-position: -605px 0;
+    width: 125px;
+    height: 54px;
+}
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
+    margin-left: 12px;
+ }
+
+/*.corusel-img {*/
+    /*height: 400px;*/
+    /*max-width: 100%;*/
+    /*!* The image used *!*/
+    /*background-image: url("../img/bg-4.jpg");*/
+    /*!* Full height *!*/
+
+    /*!* Create the parallax scrolling effect *!*/
+    /*background-attachment: fixed;*/
+    /*background-position: center center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+
+/*}*/
+#myCarousel h2{
+    margin: 0;
+    color: #ffffff;
+    padding-top: 90px;
+    font-size: 52px;
+    font-family: "trebuchet ms", sans-serif;
+}
+#myCarousel .item{
+    background: #333;
+    text-align: center;
+    height: 400px;
+    background-position: center center;
+    background-size: cover;
+}
+#myCarousel .item:first-child{
+    background-image: url("../img/bg-4.jpg");
+
+}
+#myCarousel .item:nth-child(2){
+    background-image: url("../img/bg-28.jpg");
+}
+#myCarousel .item:last-child{
+    background-image: url("../img/bg-30.jpg");
+}
+.carousel{
+    margin-top: 0;
+}
+.slogan{
+    margin-top: 50px;
+}
+.slogan span {
+    font-style: italic;
+    color: #666;
+}
+.slogan h1 {
+    margin-top: 10px;
+    color: #0f0f0f;
+    font-weight: bold;
+
+}
+.slogan p {
+    font-style: italic;
+    color: #666;
+}
+/*При наведении на иконки должны подсвечиваться таким же цветом как и ховер ссылок*/
+.technology-icons .row {
+    background-color: #f5f5f5;
+    margin-top: 30px;
+    height: auto;
+    border-radius: 5px;
+    padding: 15px;
+}
+.technology-icons .row .col-lg-2 {
+    text-align: center;
+}
+/*.technology-icons img:hover {*/
+    /*transition: 0.5s;*/
+    /*background-color: #09c4f2;*/
+    /*background-size: 210%;*/
+    /*border-radius: 10px;
+}*/
+
+/*иконки языков программирования*/
+.technology-icons .python, .django, .html5, .css3, .sql, .english {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+}
+.technology-icons .python:hover, .django:hover, .html5:hover,
+.css3:hover, .sql:hover, .english:hover {
+    transition: 0.2s;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(9, 196, 242, 1);
+}
+.technology-icons .python:hover {
+    background-color: rgba(9, 196, 242, 1);
+}
+.technology-icons .django:hover {
+    background-color: rgba(9, 196, 242, 1);
+}
+.technology-icons .html5:hover {
+    background-color: rgba(9, 196, 242, 1);
+}
+.technology-icons .css3:hover {
+    background-color: rgba(9, 196, 242, 1);
+}
+.technology-icons .sql:hover {
+    background-color: rgba(9, 196, 242, 1);
+}
+.technology-icons .english:hover {
+    background-color: rgba(9, 196, 242, 1);
+}
+.technology-icons .python {
+    background:url("../img/icon/sprites.png") no-repeat;
+    background-position: 0 0;
+}
+.technology-icons .django {
+    background:url("../img/icon/sprites.png") no-repeat;
+    background-position: -100px 0;
+
+}
+.technology-icons .html5 {
+    background:url("../img/icon/sprites.png") no-repeat;
+    background-position: -200px 0;
+}
+.technology-icons .css3 {
+    background:url("../img/icon/sprites.png") no-repeat;
+    background-position: -301px 0;
+}
+.technology-icons .sql {
+    background:url("../img/icon/sprites.png") no-repeat;
+    background-position: -401px 0;
+}
+.technology-icons .english {
+    background:url("../img/icon/sprites.png") no-repeat;
+    background-position: -504px -2px;
+
+}
+
+.block-information div {
+    padding: 0;
+    margin:0;
+}
+.block-information h1 {
+    margin-bottom: 5%;
+    color: #0f0f0f;
+}
+/*блок информация обо мне*/
+.block-information {
+    background-color: #f5f5f5;
+    margin-top: 80px;
+}
+
+.block-information .about-me-description,
+.block-information .about-me-languages {
+    margin-left:7%;
+    margin-right: 5%;
+    margin-top: 5%;
+    padding: 10px;
+}
+.block-information img {
+    min-height: 250px;
+}
+
+.about-me-languages ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    margin-left: 50px;
+}
+.about-me-languages li {
+    position: relative;
+    margin-bottom: 5px;
+}
+.about-me-languages li:before {
+    position: absolute;
+    content: "";
+    background: url("../img/icon/sprites.png") no-repeat;
+    background-position: -810px -60px;
+    width: 25px;
+    height: 15px;
+    top: 3px;
+    left: -45px;
+}
+/* блок мои проекты*/
+.my-projects {
+    margin-top: 50px;
+}
+.my-projects img {
+    width: 100%;
+}
+.my-projects .row div {
+    padding: 0;
+}
+.my-projects-position {
+    position:relative;
+}
+.my-projects h1 a {
+    text-decoration: none;
+    color: black;
+
+}
+.my-projects h1 {
+    margin-bottom: 20px;
+}
+.my-projects h1 a:hover {
+    text-decoration: none;
+    color: #09c4f2!important;
+}
+
+.project-short-title {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    padding: 10px;
+    color: #ffffff;
+    background-color: rgba(0,0,0, 0.3);
+    text-align: center;
+}
+.project-short-title:hover .project-short-description {
+    display: block;
+}
+.project-short-title:hover {
+    height: 100%;
+    transition: all 1s;
+    background-color: rgba(0,0,0, 0.7);
+
+}
+.project-short-description {
+    display:none;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    text-align: center;
+    width: 100%;
+}
+/*футер*/
+footer {
+    margin-top: 60px;
+    width: 100%;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+.soc-bnt {
+    text-align: center;
+}
+.soc-bnt-common {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+.soc-bnt-vk {
+    background: url("../img/icon/sprites_soc_btn.png") no-repeat;
+    background-position: 0 -4px;
+}
+.soc-bnt-skype {
+    background: url("../img/icon/sprites_soc_btn.png") no-repeat;
+    background-position: -102px -1px;
+}
+
+.soc-bnt-github {
+    background: url("../img/icon/sprites_soc_btn.png") no-repeat;
+    background-position: -53px -1px;
+}
+
+.soc-bnt-linkedin {
+    background: url("../img/icon/sprites_soc_btn.png") no-repeat;
+    background-position: -153px 0;
+
+}
+
+

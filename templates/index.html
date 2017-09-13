@@ -1,0 +1,181 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+ <!--Карусель -->
+<div id="myCarousel" class="carousel slide" data-interval="8000" data-ride="carousel">
+    <!-- Индикаторы для карусели -->
+    <ol class="carousel-indicators">
+        <!-- Перейти к 0 слайду карусели с помощью соответствующего индекса data-slide-to="0" -->
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <!-- Перейти к 1 слайду карусели с помощью соответствующего индекса data-slide-to="1" -->
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <!-- Перейти к 2 слайду карусели с помощью соответствующего индекса data-slide-to="2" -->
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner"><!-- Слайды создаются с помощью контейнера с классом item, внутри которого помещается содержимое слайда -->
+        <div class="active item">
+            <h2>БЫСТРО</h2>
+            <div class="carousel-caption">
+                <h3>Заголовок 2 слайда</h3>
+                <p>Текст (описание) 1 слайда...</p>
+            </div>
+        </div>
+        <div class="item">
+            <h2>КРУТО</h2>
+            <div class="carousel-caption">
+                <h3>Заголовок 2 слайда</h3>
+                <p>Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
+            </div>
+        </div>
+        <div class="item">
+            <h2>НАДЕЖНО</h2>
+            <div class="carousel-caption">
+                <h3>Third slide label</h3>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Навигация для карусели -->
+    <!-- Кнопка, осуществляющая переход на предыдущий слайд с помощью атрибута data-slide="prev" -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <!-- Кнопка, осуществляющая переход на следующий слайд с помощью атрибута data-slide="next" -->
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+<!--Слоган-->
+<div class="slogan text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-4 col-md-4" >
+                <span>Следуя идеологии</span>
+                <h1>Python</h1>
+                <p> Красивое лучше, чем уродливое.<br>
+                    Явное лучше, чем неявное.<br>
+                    Простое лучше, чем сложное.<br>
+                    Сложное лучше, чем запутанное...<br>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--иконки технологий-->
+<div class="technology-icons">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6" >
+                <div class="python"> </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6" >
+                <div class="django"> </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                <div class="html5"> </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                <div class="css3"> </div>
+            </div>
+            <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                <div class="sql"> </div>
+            </div>
+            <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                <div class="english"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block-information">
+    <div class="container-fluid">
+            <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+
+                <img src="{% static 'img/bg-img/bg-4.jpg' %}" class="img-responsive">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="about-me-description">
+                    <h1>Обо мне:</h1>
+                    <p>Меня зовут Трафимов Николай</p>
+                    <p>Возраст: 26 лет</p>
+                    <p>Имею законченное высшее образование в области добычи полезных ископаемых</p>
+                    <p>На данный момент развиваюсь в области Web-разработки</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+            <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="about-me-languages">
+                    <h1>Владею языками и технологиями:</h1>
+                    <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <ul>
+                        <li>Python 3</li>
+                        <li>Django 1.8+</li>
+                        <li>HTML 5</li>
+                        <li>CSS 3</li>
+                        <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <ul>
+
+                        <li>Git</li>
+                        <li>Linux Ubuntu</li>
+                        <li>Pycharm</li>
+                        <li>English</li>
+                    </ul>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 hidden-sm hidden-xs">
+                <img src="{% static 'img/bg-img/bg-6.jpg' %}" class="img-responsive">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="my-projects">
+    <h1 class="text-center"><a href="#">Мои проекты:</a></h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="my-projects-position col-lg-4 col-md-4 col-sm-4">
+                <a href="#">
+                    <img src="{% static 'img/progects/img-3.jpg' %}" class="img-responsive">
+                <span class="project-short-title">Название 1
+                     <span class="project-short-description">
+                        Тут будет какаянить хуйня символов на 140
+                        изначально скрыто
+                     </span>
+                </span>
+                </a>
+            </div>
+            <div class="my-projects-position col-lg-4 col-md-4 col-sm-4">
+                <a href="#">
+                    <img src="{% static 'img/progects/img-7.jpg' %}" class="img-responsive">
+                    <span class="project-short-title">Название 2
+                        <span class="project-short-description">
+                        Тут будет какаянить хуйня символов на 140
+                        изначально скрыто
+                        </span>
+                    </span>
+
+                </a>
+            </div>
+            <div class="my-projects-position col-lg-4 col-md-4 col-sm-4">
+                <a href="#">
+                    <img src="{% static 'img/progects/img-8.jpg' %}" class="img-responsive">
+                    <span class="project-short-title">Название 3
+                         <span class="project-short-description">
+                        Тут будет какаянить хуйня символов на 140
+                        изначально скрыто
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
