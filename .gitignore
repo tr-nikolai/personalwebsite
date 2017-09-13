@@ -3,6 +3,6 @@
 *.pyc
 blog_posts/migrations/__pycache__/
 blog_posts/__pycache__/
-blog_posts/migrations
 personalwebsite/__pycahe__/
-personalwebsite/settings.py
+/personalwebsite/settings.py
+/blog_posts/migrations/
