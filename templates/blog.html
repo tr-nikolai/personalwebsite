@@ -1,16 +1,68 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <h1>Blog</h1>
-            {% for obj in object_list %}
-                <a href="{{ obj.get_absolute_url }}">{{obj.title}}</a><br>
-                {{obj.content}}<br>
-                {{obj.timestamp}}<br>
-                {{obj.updated}}<br>
-                {{obj.id}}
-                <hr>
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Блог</h1>
+        <form method="GET" action="">
+            <input type="text" name="q" placeholder="Поиск" value="{{ request.GET.q }}">
+            <input type="submit" value="Поиск" class="btn">
+        </form>
+            {% if messages %}
+                <ul class="messages">
+                {% for message in messages %}
+                    <li style="color: red" {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </li>
                 {% endfor %}
+                 </ul>
+            {% endif %}
+    </div>
+{% for obj in object_list %}
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <a class="text-center" href="{{ obj.get_absolute_url }}">
+                <h3 class="text-center">{{obj.title}}</h3>
+                {% if obj.draft %}<h3 style="color: red"> Черновик</h3>{% endif %}
+            </a>
+            <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
+            {% if obj.image %}
+                <img src="{{obj.image.url }}" class="img-responsive img-thumbnail">
+            {% endif %}
+            </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <p>{{obj.content| linebreaks| truncatechars:400}}</p>
+            {% if obj.user.get_full_name %}
+                <p>Автор: {{obj.user.get_full_name }}</p>
+            {% endif %}
+            {% if obj.publish > today %}
+            <small style="color:red;">Будет Опубликовано: {{ obj.publish }}</small>
+            {%else %}
+            <small> Опубликовано: {{ obj.publish }}</small>
+            {% endif%}
+            <p class="text-center"><a href="{{ obj.get_absolute_url}}" class="btn btn-primary" role="button">Просмотреть</a></p>
+            <hr>
+        </div>
+    </div>
+{% endfor %}
+<!--paginator-->
+    <div class="row text-center">
+        <div class="pagination">
+            <span class="step-links">
+                {% if object_list.has_previous %}
+                    <a href="?{{page_request_var}}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }} {% endif %}">Предыдущая </a>
+                {% endif %}
+                <span class="current">
+                    Стр. {{ object_list.number }} из {{ object_list.paginator.num_pages }}.
+                </span>
+
+                {% if object_list.has_next %}
+                    <a href="?{{page_request_var}}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }} {% endif %}">Следующая</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>
 {% endblock content %}

@@ -8,4 +8,7 @@ class BlogPostForm(forms.ModelForm):
         fields = [
             'title',
             'content',
+            'image',
+            'draft',
+            'publish'
         ]

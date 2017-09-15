@@ -2,18 +2,38 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            {% if messages %}
+                <ul class="messages">
+                {% for message in messages %}
+                    <li style="color: red" {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </li>
+                {% endfor %}
+                 </ul>
+            {% endif %}
+            <h1 class="text-center">{{instance.title}}</h1>
+            {% if instance.draft %}<h3 style="color: red" class="text-center"> Черновик</h3>{% endif %}
+            <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6
+            col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
+        {% if instance.image %}
+            <img src="{{instance.image.url }}" class="img-responsive img-thumbnail">
         {% endif %}
-        {{instance.title}}<br>
-        {{instance.content}}<br>
-        {{instance.timestamp}}<br>
-        {{instance.updated}}<br>
-        {{id}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+        <p>{{instance.content| linebreaks}}</p>
+        {% if instance.user.get_full_name %}
+        <p>Автор: {{instance.user.get_full_name }}</p>
+        {% endif %}
+        {% if instance.publish > today %}
+            <small style="color:red;">Будет Опубликовано: {{ instance.publish }}</small>
+        {%else %}
+            <small> Опубликовано: {{ instance.publish }}</small>
+        {% endif%}
+        </div>
     </div>
 </div>
 {% endblock content %}

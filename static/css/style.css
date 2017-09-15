@@ -1,4 +1,4 @@
-body {
+html, body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 15px;
     height: 100%;
@@ -278,8 +278,6 @@ body {
 }
 /*футер*/
 footer {
-    margin-top: 60px;
-    width: 100%;
     padding: 20px;
     background-color: #f5f5f5;
 }
@@ -312,6 +310,17 @@ footer {
     background: url("../img/icon/sprites_soc_btn.png") no-repeat;
     background-position: -153px 0;
 
-}
 
+}
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -112px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+	height: 112px;
+}
 

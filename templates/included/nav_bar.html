@@ -10,15 +10,14 @@
                     <span class="icon-bar"></span>
                      </button>
             <!--<a class="navbar-brand" href="#"><img src="img/icon/Personalwebsite.png" height="auto" width="100px"></a>-->
-                <a class="navbar-brand" href="#"></a>
+                <a class="navbar-brand" href="/"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" class="active-link">главная</a></li>
-                    <li><a href="#">Обо мне</a></li>
+                    <li><a href="/" class="active-link">главная</a></li>
                     <li><a href="#">Проекты</a></li>
-                    <li><a href="#">блог</a></li>
+                    <li><a href="{% url 'blog:list' %}">блог</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-->
