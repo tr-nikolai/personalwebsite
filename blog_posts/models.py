@@ -1,7 +1,9 @@
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.utils import timezone
+from blog_comments.models import BlogComments
 
 class BlogPostManager(models.Manager):
     def active(self):
@@ -17,7 +19,7 @@ class BlogPost(models.Model):
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     content = models.TextField()
-    draft = models.BooleanField(default=False, verbose_name='Черновик')
+    draft = models.BooleanField(default=False)
     publish = models.DateField(auto_now=False, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
@@ -27,7 +29,19 @@ class BlogPost(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog:detail', kwargs={'id':self.id})
+        return reverse('blog:detail', kwargs={'id': self.id})
 
     class Meta:
         ordering = ['-timestamp', '-updated']
+
+    @property
+    def comments(self):
+        instance = self
+        qs = BlogComments.objects.filter_by_instance(instance)
+        return qs
+
+    @property
+    def get_content_type(self):
+        instance = self
+        content_type = ContentType.objects.get_for_model(instance.__class__)
+        return content_type

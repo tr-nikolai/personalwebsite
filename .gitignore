@@ -6,3 +6,4 @@ blog_posts/__pycache__/
 personalwebsite/__pycahe__/
 /personalwebsite/settings.py
 /blog_posts/migrations/
+blog_comments/migrations/
