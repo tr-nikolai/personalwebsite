@@ -16,7 +16,7 @@
             {% endif %}
             <h1 class="text-center">{{instance.title}}</h1>
             {% if instance.draft %}<h3 style="color: red" class="text-center"> Черновик</h3>{% endif %}
-            <div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6
+            <div class="text-center col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6
             col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
         {% if instance.image %}
             <img src="{{instance.image.url }}" class="img-responsive img-thumbnail">
@@ -28,7 +28,9 @@
         <div class="col-lg-12 col-md-12 col-sm-12">
         <p>{{instance.content| linebreaks}}</p>
         {% if instance.user.get_full_name %}
-        <p>Автор: {{instance.user.get_full_name }}</p>
+            <p>Автор: {{instance.user.get_full_name }}</p>
+        {%else %}
+            <p>Автор: {{instance.user }}</p>
         {% endif %}
         {% if instance.publish > today %}
             <small style="color:red;">Будет Опубликовано: {{ instance.publish }}</small>
@@ -42,7 +44,7 @@
 
         <div class="col-lg-12 col-md-12 col-sm-12">
         <h3>Комментарии:</h3>
-            <form method="POST" action="{{ instance.get_absolute_url}}">
+            <form method="POST" action="">
                 {% csrf_token %}
                 {{ comment_form|crispy }}
                 <input type="submit" class="btn btn-default" value="Отправить">
@@ -51,7 +53,30 @@
         {% for comment in comments %}
         <blockquote>
         <p>{{ comment.content| linebreaks }}</p>
-            <footer>Комметарий от: {{ comment.user}} | {{ comment.timestamp|date:"y-m-d H:m" }} </footer>
+            <footer>От: {{ comment.user}} | {{ comment.timestamp|date:"y-m-d H:m" }} |
+                {%if comment.children.count > 0 %} Кол-во комментариев: {{comment.children.count }} | {% endif %}
+                <a  class='comment-reply-btn' href="#">Ответить</a>
+                {% if request.user == comment.user %}
+                | <a  href="{% url 'comments:delete' comment.id %}"> Удалить</a>
+                {% endif %}
+            </footer>
+            <div class="comment-reply">
+                 <hr>
+                {% for child_comment in comment.children %}
+                <blockquote>
+                <p>{{ child_comment.content| linebreaks }}</p>
+                <footer>
+                    Комметарий от: {{ child_comment.user}} | {{ child_comment.timestamp|date:"y-m-d H:m" }}
+                </footer>
+                </blockquote>
+                {% endfor %}
+                <form method="POST" action="">
+                     {% csrf_token %}
+                     {{ comment_form|crispy }}
+                     <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                     <input type="submit" class="btn btn-default" value="Ответить">
+                </form>
+            </div>
         </blockquote>
         {% endfor %}
         </div>

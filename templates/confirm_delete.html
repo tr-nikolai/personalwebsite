@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row text-center">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <h3>Удаление комментария: </h3>
+            <form method="POST" action=""> {% csrf_token %}
+                <p>Вы действительно хотите удалить комментарий?!</p>
+                <p>{{object.content|linebreaks }}</p>
+                <input type="submit" value="Да" class="btn btn-default">
+                <a  href="{% url 'blog:detail' 1 %}" class="btn btn-default">Нет</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -9,7 +9,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
     url(r'^blog/', include('blog_posts.urls', namespace='blog')),
+    url(r'^comments/', include('blog_comments.urls', namespace='comments')),
 ]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

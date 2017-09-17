@@ -70,12 +70,24 @@ def post_detail(request, id=id):
         content_type = ContentType.objects.get(model=c_type_cleaned)
         obj_id = form.cleaned_data.get('object_id')
         content_data = form.cleaned_data.get('content')
+        parent_obj = None
+        try:
+            parent_id = int(request.POST.get('parent_id'))
+        except:
+            parent_id = None
+        if parent_id:
+            parent_qs = BlogComments.objects.filter(id=parent_id)
+            if parent_qs.exists() and parent_qs.count() == 1:
+                parent_obj = parent_qs.first()
+
         new_comment, created = BlogComments.objects.get_or_create(
             user = request.user,
             content_type = content_type,
             object_id = obj_id,
             content = content_data,
+            parent  = parent_obj,
         )
+        return  HttpResponseRedirect(new_comment.content_object.get_absolute_url())
     comments = instance.comments
     context = {
         'title': instance.title,
@@ -100,7 +112,7 @@ def post_list(request):
             Q(user__first_name__icontains=query) |
             Q(user__last_name__icontains=query)
         ).distinct()
-    paginator = Paginator(queryset_list, 5)
+    paginator = Paginator(queryset_list, 3)
     page_request_var = 'page'
     page = request.GET.get(page_request_var)
     try:
@@ -118,3 +130,6 @@ def post_list(request):
         'today': today,
     }
     return render(request, 'blog.html', context)
+
+
+

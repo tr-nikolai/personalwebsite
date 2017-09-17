@@ -323,4 +323,21 @@ footer {
 .site-footer, .page-wrap:after {
 	height: 112px;
 }
-
+blockquote .comment-reply {
+    display: none;
+}
+.blog-block {
+    background-color: #f5f5f5;
+    padding: 5px;
+    margin-top: 10px;
+    margin:bottom 10px;
+    border-radius: 4px;
+}
+.blog-head h1 {
+    margin:0;
+}
+.blog-head {
+    padding:5px;
+    margin-top: 20px;
+    margin-bottom:20px;
+}
