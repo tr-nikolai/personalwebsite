@@ -7,7 +7,7 @@ from django.contrib.contenttypes.models import ContentType
 
 class BlogCommentsManager(models.Manager):
     def filter_by_instance(self, instance):
-        content_type =  ContentType.objects.get_for_model(instance.__class__)
+        content_type = ContentType.objects.get_for_model(instance.__class__)
         obj_id = instance.id
         qs = super(BlogCommentsManager, self).filter(content_type=content_type, object_id=obj_id)
         return qs

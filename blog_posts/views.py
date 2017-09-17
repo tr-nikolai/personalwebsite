@@ -66,7 +66,8 @@ def post_detail(request, id=id):
     form = BlogCommentForm(request.POST or None, initial=initial_data)
     if form.is_valid():
         c_type = form.cleaned_data.get("content_type")
-        content_type = ContentType.objects.get(model=c_type)
+        c_type_cleaned = c_type.replace(' ', '')
+        content_type = ContentType.objects.get(model=c_type_cleaned)
         obj_id = form.cleaned_data.get('object_id')
         content_data = form.cleaned_data.get('content')
         new_comment, created = BlogComments.objects.get_or_create(
@@ -75,8 +76,6 @@ def post_detail(request, id=id):
             object_id = obj_id,
             content = content_data,
         )
-        if created:
-            print('yeaaaaaaaaaaa')
     comments = instance.comments
     context = {
         'title': instance.title,
