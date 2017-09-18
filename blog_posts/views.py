@@ -45,7 +45,6 @@ def post_update(request, id=id):
     return render(request, 'post_form.html', context)
 
 
-
 def post_delete(request, id=id):
     if not request.user.is_staff or not request.user.is_superuser:
         raise Http404
@@ -66,7 +65,7 @@ def post_detail(request, id=id):
         'object_id': instance.id,
     }
     form = BlogCommentForm(request.POST or None, initial=initial_data)
-    if form.is_valid() and request.user.is_authenticated():
+    if form.is_valid():
         c_type = form.cleaned_data.get("content_type")
         c_type_cleaned = c_type.replace(' ', '')
         content_type = ContentType.objects.get(model=c_type_cleaned)
@@ -83,13 +82,13 @@ def post_detail(request, id=id):
                 parent_obj = parent_qs.first()
 
         new_comment, created = BlogComments.objects.get_or_create(
-            user = request.user,
-            content_type = content_type,
-            object_id = obj_id,
-            content = content_data,
-            parent  = parent_obj,
+            user=request.user,
+            content_type=content_type,
+            object_id=obj_id,
+            content=content_data,
+            parent=parent_obj,
         )
-        return  HttpResponseRedirect(new_comment.content_object.get_absolute_url())
+        return HttpResponseRedirect(new_comment.content_object.get_absolute_url())
     comments = instance.comments
     context = {
         'title': instance.title,
@@ -127,7 +126,7 @@ def post_list(request):
         queryset = paginator.page(paginator.num_pages)
     context = {
         'object_list': queryset,
-        'title': 'List',
+        'title_blog': 'active-link',
         'page_request_var':  page_request_var,
         'today': today,
     }

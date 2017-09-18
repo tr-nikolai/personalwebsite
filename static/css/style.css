@@ -110,16 +110,9 @@ html, body {
     border-radius: 5px;
     padding: 15px;
 }
-.technology-icons .row .col-lg-2 {
+.technology-icons .row  {
     text-align: center;
 }
-/*.technology-icons img:hover {*/
-    /*transition: 0.5s;*/
-    /*background-color: #09c4f2;*/
-    /*background-size: 210%;*/
-    /*border-radius: 10px;
-}*/
-
 /*иконки языков программирования*/
 .technology-icons .python, .django, .html5, .css3, .sql, .english {
     display: inline-block;

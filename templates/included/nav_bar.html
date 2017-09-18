@@ -15,9 +15,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/" class="active-link">главная</a></li>
-                    <li><a href="#">Проекты</a></li>
-                    <li><a href="{% url 'blog:list' %}">блог</a></li>
+                    <li><a href="/" class="{{title_index}}">главная</a></li>
+                    <li><a href="{% url 'myprojects:list' %}" class="{{ title_projects}}">Проекты</a></li>
+                    <li><a href="{% url 'blog:list' %}" class="{{ title_blog }}">блог</a></li>
                     {% if user.is_authenticated %}
                     <li><a  href="{% url 'logout' %}">выход</a></li>
                     {% else %}

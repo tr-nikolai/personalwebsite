@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row text-center">
+        <h1> Мои проекты!</h1>
+        <div class="col-lg-3 col-md-3 col-sm-3">
+
+            <form method="POST" action="">
+            {% csrf_token %}
+            {{ form| crispy }}
+            <input type="submit" value="Поиск" class="btn btn-default">
+            </form>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9">
+            <div class="row text-center">
+                {% for project in qs_l %}
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <p>{{project.project_name}}</p>
+                    <p>{{project.project_short_description}}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
