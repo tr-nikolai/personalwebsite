@@ -5,6 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.contenttypes.models import ContentType
 from django.utils import timezone
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 from .models import BlogPost
 from .forms import BlogPostForm
 from blog_comments.forms import BlogCommentForm
@@ -44,6 +45,7 @@ def post_update(request, id=id):
     return render(request, 'post_form.html', context)
 
 
+
 def post_delete(request, id=id):
     if not request.user.is_staff or not request.user.is_superuser:
         raise Http404
@@ -64,10 +66,9 @@ def post_detail(request, id=id):
         'object_id': instance.id,
     }
     form = BlogCommentForm(request.POST or None, initial=initial_data)
-    if form.is_valid():
+    if form.is_valid() and request.user.is_authenticated():
         c_type = form.cleaned_data.get("content_type")
         c_type_cleaned = c_type.replace(' ', '')
-        print('c_type==========', c_type)
         content_type = ContentType.objects.get(model=c_type_cleaned)
         obj_id = form.cleaned_data.get('object_id')
         content_data = form.cleaned_data.get('content')

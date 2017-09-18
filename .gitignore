@@ -7,3 +7,4 @@ personalwebsite/__pycahe__/
 /personalwebsite/settings.py
 /blog_posts/migrations/
 blog_comments/migrations/
+/media/

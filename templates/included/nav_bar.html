@@ -18,6 +18,12 @@
                     <li><a href="/" class="active-link">главная</a></li>
                     <li><a href="#">Проекты</a></li>
                     <li><a href="{% url 'blog:list' %}">блог</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a  href="{% url 'logout' %}">выход</a></li>
+                    {% else %}
+                    <li><a href="{% url 'register' %}">регистрация</a></li>
+                    <li><a href="{% url 'login' %}">вход</a></li>
+                    {% endif %}
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-->

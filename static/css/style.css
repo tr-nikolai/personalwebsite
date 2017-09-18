@@ -296,12 +296,11 @@ footer {
     background: url("../img/icon/sprites_soc_btn.png") no-repeat;
     background-position: 0 -4px;
 }
-.soc-bnt-skype {
+ .soc-bnt-github {
     background: url("../img/icon/sprites_soc_btn.png") no-repeat;
     background-position: -102px -1px;
 }
-
-.soc-bnt-github {
+.soc-bnt-skype {
     background: url("../img/icon/sprites_soc_btn.png") no-repeat;
     background-position: -53px -1px;
 }
