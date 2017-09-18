@@ -10,5 +10,4 @@ class BlogPostAdmin(admin.ModelAdmin):
     class Meta:
         model = BlogPost
 
-
 admin.site.register(BlogPost, BlogPostAdmin)

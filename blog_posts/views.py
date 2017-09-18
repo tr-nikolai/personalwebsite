@@ -67,6 +67,7 @@ def post_detail(request, id=id):
     if form.is_valid():
         c_type = form.cleaned_data.get("content_type")
         c_type_cleaned = c_type.replace(' ', '')
+        print('c_type==========', c_type)
         content_type = ContentType.objects.get(model=c_type_cleaned)
         obj_id = form.cleaned_data.get('object_id')
         content_data = form.cleaned_data.get('content')
