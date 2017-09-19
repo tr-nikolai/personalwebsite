@@ -28,11 +28,7 @@ html, body {
 .navbar-default .navbar-nav > li > a:hover {
      color:#09c4f2;
 }
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
-}
+
 .navbar-brand {
     background: url("../img/icon/sprites.png") no-repeat;
     background-position: -605px 0;
@@ -43,47 +39,24 @@ html, body {
 .navbar > .container-fluid .navbar-brand {
     margin-left: 12px;
  }
+.parallax {
 
-/*.corusel-img {*/
-    /*height: 400px;*/
-    /*max-width: 100%;*/
-    /*!* The image used *!*/
-    /*background-image: url("../img/bg-4.jpg");*/
-    /*!* Full height *!*/
-
-    /*!* Create the parallax scrolling effect *!*/
-    /*background-attachment: fixed;*/
-    /*background-position: center center;*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: cover;*/
-
-/*}*/
-#myCarousel h2{
-    margin: 0;
-    color: #ffffff;
-    padding-top: 90px;
-    font-size: 52px;
-    font-family: "trebuchet ms", sans-serif;
-}
-#myCarousel .item{
-    background: #333;
-    text-align: center;
-    height: 400px;
-    background-position: center center;
-    background-size: cover;
-}
-#myCarousel .item:first-child{
+    /* The image used */
     background-image: url("../img/bg-4.jpg");
 
+    /* Set a specific height */
+    height: 500px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-#myCarousel .item:nth-child(2){
-    background-image: url("../img/bg-28.jpg");
-}
-#myCarousel .item:last-child{
-    background-image: url("../img/bg-30.jpg");
-}
-.carousel{
-    margin-top: 0;
+.paralax-text-block  {
+    display:block;
+    padding-top: 200px;
+    margin:0;
+    color: #ffffff
 }
 .slogan{
     margin-top: 50px;
@@ -315,9 +288,11 @@ footer {
 .site-footer, .page-wrap:after {
 	height: 112px;
 }
+/* blog */
 blockquote .comment-reply {
     display: none;
 }
+
 .blog-block {
     background-color: #f5f5f5;
     padding: 5px;
@@ -329,11 +304,13 @@ blockquote .comment-reply {
 .blog-head h1 {
     margin:0;
 }
+
 .blog-head {
     padding:5px;
     margin-top: 20px;
     margin-bottom:20px;
 }
+/*project*/
 .project-body-block {
     margin-top: 40px;
 }
