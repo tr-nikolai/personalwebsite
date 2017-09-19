@@ -4,22 +4,58 @@
 
 {% block content %}
 <div class="container">
-    <div class="row text-center">
-        <h1> Мои проекты!</h1>
-        <div class="col-lg-3 col-md-3 col-sm-3">
-
+    <h1 class="text-center"> Мои проекты!</h1>
+    <div class="row project-body-block">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 thumbnail project-body-block-sort">
+            <h4>Сортировать по: </h4>
             <form method="POST" action="">
             {% csrf_token %}
             {{ form| crispy }}
             <input type="submit" value="Поиск" class="btn btn-default">
             </form>
         </div>
-        <div class="col-lg-9 col-md-9 col-sm-9">
-            <div class="row text-center">
+        <div class="col-lg-offset-1 col-lg-9 col-md-offset-1 col-md-9 col-sm-offset-1 col-sm-9 col-xs-12">
+            <div class="row ">
                 {% for project in qs_l %}
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <p>{{project.project_name}}</p>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 thumbnail project-body-block-pj">
+                    <h3 class="text-center">{{project.project_name}}</h3>
+                    <hr>
                     <p>{{project.project_short_description}}</p>
+                    <p>Ссылка на проект: <a href="{{project.urlgit}}">GitHub</a></p>
+                    <h4>Примененные технологии в проекте:</h4>
+                    <div class="project-tex-block">
+                        <p>
+                            {% if project.project_python and cleaned_form.project_python %}
+                                <b>Python 3</b>
+                            {% elif project.project_python %}
+                                Python 3
+                            {% endif %}
+
+                            {% if project.project_django and cleaned_form.project_django %}
+                            <b>Django</b>
+                            {% elif project.project_django %}
+                                Django
+                            {% endif %}
+
+                            {% if project.project_html and cleaned_form.project_html %}
+                            <b>HTML 5</b>
+                            {% elif project.project_html %}
+                                HTML 5
+                            {% endif %}
+
+                            {% if project.project_css and cleaned_form.project_css %}
+                            <b>CSS 3</b>
+                            {% elif project.project_html %}
+                                CSS 3
+                            {% endif %}
+
+                            {% if project.project_sql and cleaned_form.project_sql %}
+                            <b>SQL</b>
+                            {% elif project.project_sql %}
+                                SQL
+                            {% endif %}
+                        </p>
+                    </div>
                 </div>
                 {% endfor %}
             </div>

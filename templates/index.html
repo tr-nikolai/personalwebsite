@@ -138,39 +138,38 @@
     </div>
 </div>
 <div class="my-projects">
-    <h1 class="text-center"><a href="#">Мои проекты:</a></h1>
+    <div class="text-center">
+        <h1 ><a href="{% url 'myprojects:list' %}">Мои проекты:</a></h1>
+        <small> (Кликните что бы просмотреть все) </small>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="my-projects-position col-lg-4 col-md-4 col-sm-4">
-                <a href="#">
+                <a href="{{first_project.urlgit}}" target="_blank">
                     <img src="{% static 'img/progects/img-3.jpg' %}" class="img-responsive">
-                <span class="project-short-title">Название 1
+                <span class="project-short-title">{{ first_project.project_name }}
                      <span class="project-short-description">
-                        Тут будет какаянить хуйня символов на 140
-                        изначально скрыто
+                        {{ first_project.project_short_description }}
                      </span>
                 </span>
                 </a>
             </div>
             <div class="my-projects-position col-lg-4 col-md-4 col-sm-4">
-                <a href="#">
+                <a href="{{second_project.urlgit}}" target="_blank">
                     <img src="{% static 'img/progects/img-7.jpg' %}" class="img-responsive">
-                    <span class="project-short-title">Название 2
+                    <span class="project-short-title">{{ second_project.project_name }}
                         <span class="project-short-description">
-                        Тут будет какаянить хуйня символов на 140
-                        изначально скрыто
+                        {{ second_project.project_short_description }}
                         </span>
                     </span>
-
                 </a>
             </div>
             <div class="my-projects-position col-lg-4 col-md-4 col-sm-4">
-                <a href="#">
+                <a href="{{third_project.urlgit}}" target="_blank">
                     <img src="{% static 'img/progects/img-8.jpg' %}" class="img-responsive">
-                    <span class="project-short-title">Название 3
+                    <span class="project-short-title">{{ third_project.project_name }}
                          <span class="project-short-description">
-                        Тут будет какаянить хуйня символов на 140
-                        изначально скрыто
+                        {{ third_project.project_short_description}}
                         </span>
                     </span>
                 </a>
