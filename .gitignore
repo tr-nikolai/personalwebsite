@@ -7,7 +7,6 @@ personalwebsite/__pycahe__/
 accounts/__pycache__/
 blog_comments/__pycache__/
 personalwebsite/__pycache__/
-/personalwebsite/settings.py
 /blog_posts/migrations/
 blog_comments/migrations/
 /myprojects/migrations/
